@@ -1,0 +1,23 @@
+type Task {
+    id: ID!
+    title: String!
+    description: String!
+    completed: Boolean!
+    createdAt: String!
+    deadline: String
+}
+
+type Query {
+    allTasks: [Task!]!
+}
+
+type Mutation {
+    createTask(title: String!, description: String!, deadline: String): Task!
+    updateTaskState(id: ID!, completed: Boolean!): Task!
+    deleteTask(id: ID!): String!
+}
+
+type Subscription {
+    taskAdded: Task!
+    taskUpdated: Task!
+}
